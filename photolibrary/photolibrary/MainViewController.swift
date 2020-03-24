@@ -53,7 +53,10 @@ class MainViewController: UIViewController, UITextViewDelegate {
     }
     
     @objc func doneButtonAction() {
-        textView.inputView = TestView
+        let bundle = Bundle(for: type(of: self))
+        let nib = UINib(nibName: "CustomView", bundle: bundle)
+        let view = nib.instantiate(withOwner: self, options: nil).first as! CustomView
+        textView.inputView = view
         textView.resignFirstResponder()
         textView.becomeFirstResponder()
     }

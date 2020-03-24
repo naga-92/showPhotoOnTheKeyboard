@@ -30,6 +30,8 @@ class CustomView: UIView,UICollectionViewDelegateFlowLayout {
         collectionView.delegate = self
         
         fetchPhotos()
+        
+        self.collectionView.allowsMultipleSelection = true
     }
 }
 
@@ -38,7 +40,7 @@ extension CustomView: UICollectionViewDelegate, UICollectionViewDataSource {
     
      // - UICollectionViewFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (collectionView.frame.width - 3) / 4
+        let width = (collectionView.frame.width - 2) / 3
         return CGSize(width: width, height: width)
     }
     
@@ -68,18 +70,33 @@ extension CustomView: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell: selectPhotoCell = collectionView.cellForItem(at: indexPath) as? selectPhotoCell else { return }
+        if self.collectionView.allowsMultipleSelection {
+            cell.isMarked = true
+            print("タップしたね？")
+        }
+
         self.selectedImage = images[indexPath.row]
-        self.collectionView?.reloadData()
+//        self.collectionView?.reloadData()
         
-        let indexPath = IndexPath(item: 0, section: 0)
-        collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
+        //タップすると上に戻る
+//        let indexPath = IndexPath(item: 0, section: 0)
+//        collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        guard let cell: selectPhotoCell = collectionView.cellForItem(at: indexPath) as? selectPhotoCell else { return }
+        if self.collectionView.allowsMultipleSelection {
+            cell.isMarked = false
+             print("タップキャンセルだね？")
+        }
     }
     
     func getAssetFetchOptions() -> PHFetchOptions {
         let options = PHFetchOptions()
         
         // fetch limit
-        options.fetchLimit = 45
+        options.fetchLimit = 100
         
         // sort photos by date
         let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)

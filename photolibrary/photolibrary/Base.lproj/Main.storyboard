@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,18 +15,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIh-P1-FtB">
-                                <rect key="frame" x="0.0" y="350" width="414" height="42"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="CCU-cY-953"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="写真"/>
-                                <connections>
-                                    <action selector="didtapbtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I1m-jN-Rnv"/>
-                                </connections>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dDs-Bh-D0I">
                                 <rect key="frame" x="20" y="44" width="374" height="256"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -41,11 +29,8 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aIh-P1-FtB" secondAttribute="trailing" id="3Mf-Cb-55s"/>
-                            <constraint firstItem="aIh-P1-FtB" firstAttribute="top" secondItem="dDs-Bh-D0I" secondAttribute="bottom" constant="50" id="Ah9-iv-kRu"/>
                             <constraint firstItem="dDs-Bh-D0I" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Ddt-Mi-wvv"/>
                             <constraint firstItem="dDs-Bh-D0I" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="JM8-FC-xKL"/>
-                            <constraint firstItem="aIh-P1-FtB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TE2-8x-ZGT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dDs-Bh-D0I" secondAttribute="trailing" constant="20" id="bdb-Y9-w3x"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

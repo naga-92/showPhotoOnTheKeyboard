@@ -17,12 +17,37 @@ class selectPhotoCell: UICollectionViewCell {
         iv.backgroundColor = .lightGray
         return iv
     }()
+
+    var checkmarkView: UIImageView! = {
+        let iv = UIImageView()
+        iv.image = UIImage(named: "checkmark")!
+        iv.contentMode = .scaleAspectFill
+        iv.clipsToBounds = true
+        return iv
+    }()
+
+    var isMarked: Bool = false {
+        didSet {
+            if isMarked {
+                self.photoImageView.addSubview(self.checkmarkView!)
+            } else {
+                self.checkmarkView?.removeFromSuperview()
+            }
+        }
+    }
+    
+    func clearCheckmark() -> Void {
+        self.isMarked = false
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         addSubview(photoImageView)
         photoImageView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        
+        self.photoImageView.addSubview(checkmarkView)
+        checkmarkView.anchor(top: nil, left: nil, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 20, height: 20)
     }
     
     required init?(coder: NSCoder) {
@@ -30,6 +55,7 @@ class selectPhotoCell: UICollectionViewCell {
         
     }
 }
+
 
 extension UIView {
     
