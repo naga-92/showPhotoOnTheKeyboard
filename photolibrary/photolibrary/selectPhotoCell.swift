@@ -30,6 +30,7 @@ class selectPhotoCell: UICollectionViewCell {
         didSet {
             if isMarked {
                 self.photoImageView.addSubview(self.checkmarkView!)
+                checkmarkView.anchor(top: nil, left: nil, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 20, height: 20)
             } else {
                 self.checkmarkView?.removeFromSuperview()
             }
@@ -46,8 +47,6 @@ class selectPhotoCell: UICollectionViewCell {
         addSubview(photoImageView)
         photoImageView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         
-        self.photoImageView.addSubview(checkmarkView)
-        checkmarkView.anchor(top: nil, left: nil, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 20, height: 20)
     }
     
     required init?(coder: NSCoder) {
