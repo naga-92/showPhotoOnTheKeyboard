@@ -138,14 +138,17 @@ extension CustomView: UICollectionViewDelegate, UICollectionViewDataSource {
                             self.selectedImage = image
                         }
                         
-                        // reload collection view with images once count has completed
-                        if count == allPhotos.count - 1 {
-                            
-                            // reload collection view on main thread
-                            DispatchQueue.main.async {
-                                self.collectionView?.reloadData()
-                            }
+                        DispatchQueue.main.async {
+                            self.collectionView?.reloadData()
                         }
+                        
+                        // reload collection view with images once count has completed
+                        //ここに入ってたDispatchQueueを外すことで早くなった
+//                        if count == allPhotos.count - 1 {
+//
+//                            // reload collection view on main thread
+//
+//                        }
                     }
                 })
             })
