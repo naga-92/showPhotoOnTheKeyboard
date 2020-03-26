@@ -96,7 +96,7 @@ extension CustomView: UICollectionViewDelegate, UICollectionViewDataSource {
         let options = PHFetchOptions()
         
         // fetch limit
-        options.fetchLimit = 100
+        options.fetchLimit = 30
         
         // sort photos by date
         let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
@@ -107,6 +107,16 @@ extension CustomView: UICollectionViewDelegate, UICollectionViewDataSource {
         // return options
         return options
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+       
+       
+      if collectionView.contentOffset.y + collectionView.frame.size.height > collectionView.contentSize.height && collectionView.isDragging {
+         print("一番下に来た時の処理")
+               
+      }
+    }
+
     
     func fetchPhotos() {
         let allPhotos = PHAsset.fetchAssets(with: .image, options: getAssetFetchOptions())
